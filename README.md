@@ -1,163 +1,81 @@
-# Book List REST API – Task 3 (Elevate Lab)
+# 📚 Bookstore CRUD API with Node.js and Express
 
-This project is a simple RESTful API built using **Node.js** and **Express.js** that manages a list of books. It demonstrates core CRUD (Create, Read, Update, Delete) operations without using a database. All data is stored temporarily in memory.
+This is a simple and clean **CRUD (Create, Read, Update, Delete)** API built using **Node.js** and **Express**. It allows you to manage a list of books with basic operations like adding, retrieving, updating, and deleting book records.
 
----
+## 🚀 Features
 
-## Features
-
-- Add a new book
-- View all books
-- Update existing book details
-- Delete a book by ID
-
----
-
-## Technologies Used
-
-- Node.js
-- Express.js
-- JavaScript (ES6)
+- ✅ Create a new book
+- ✅ View all books
+- ✅ Update book details
+- ✅ Delete a book
+- ✅ JSON-based RESTful API
+- ✅ Clean and simple project structure
 
 ---
 
-## Folder Structure
+## 🛠️ Technologies Used
 
-task-3/
-│
-├── server.js # Main server file
-├── package.json # Project metadata and dependencies
-
-yaml
-Copy
-Edit
+- **Node.js**
+- **Express.js**
+- **VS Code** (for development)
 
 ---
 
-## How to Run the Project
+## 📁 Project Structure
 
-Follow these steps to run the Book List API locally:
+project-folder/
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+## 📦 Installation & Running the API Locally
 
-### 1. Clone the repository
+Follow these steps to set up and run the project on your local machine:
 
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/akarv742006/book-list-api.git
-cd book-list-api
-2. Install dependencies
-bash
-Copy
-Edit
+git clone https://github.com/akarv742006/bookstore-api.git
+cd bookstore-api
+2. Install Dependencies
 npm install
-3. Start the server
-bash
-Copy
-Edit
+3. Start the Server
 node server.js
-The API will be running at:
-http://localhost:3000
+## 🧪 How to Test the API (Get Output)
 
-API Endpoints
-Get all books
-Request:
+Once your server is running at `http://localhost:3000`, you can test the API in the following ways:
 
-http
-Copy
-Edit
-GET /books
-Response:
+### 1. Using a Tool like Postman or Thunder Client (VS Code Extension)
 
-json
-Copy
-Edit
-[
-  {
-    "id": 1,
-    "title": "Book One",
-    "author": "Author One"
-  },
-  ...
-]
-Add a new book
-Request:
+- **GET** `http://localhost:3000/books` → See all books
+- **POST** `http://localhost:3000/books` → Add a new book (use JSON in Body)
+- **PUT** `http://localhost:3000/books/:id` → Update book by ID
+- **DELETE** `http://localhost:3000/books/:id` → Delete book by ID
 
-http
-Copy
-Edit
-POST /books
-Content-Type: application/json
-Body:
+### Example:
 
-json
-Copy
-Edit
-{
-  "id": 3,
-  "title": "Book Three",
-  "author": "Author Three"
-}
-Update a book
-Request:
+#### ✅ GET All Books
+C: CREATE (POST)
+🔄 Add a new book to the list
+Invoke-RestMethod -Uri "http://localhost:3000/books" `
+  -Method POST `
+  -Body '{"id":3,"title":"Book Three","author":"Author Three"}' `
+  -ContentType "application/json"
+ R: READ (GET)
+📖 Get all books
+curl http://localhost:3000/books
+U: UPDATE (PUT)
+✏️ Update the book with ID 2
+Invoke-RestMethod -Uri "http://localhost:3000/books/2" `
+  -Method PUT `
+  -Body '{"title":"Updated Book Two","author":"Updated Author Two"}' `
+  -ContentType "application/json"
+D: DELETE (DELETE)
+❌ Delete the book with ID 1
+Invoke-RestMethod -Uri "http://localhost:3000/books/1" -Method DELETE
+Final Result (GET)
+📋 View the updated list
+curl http://localhost:3000/books
 
-http
-Copy
-Edit
-PUT /books/:id
-Content-Type: application/json
-Example:
 
-http
-Copy
-Edit
-PUT /books/2
-Body:
 
-json
-Copy
-Edit
-{
-  "title": "Updated Book Two",
-  "author": "Updated Author Two"
-}
-Delete a book
-Request:
 
-http
-Copy
-Edit
-DELETE /books/:id
-Example:
-
-http
-Copy
-Edit
-DELETE /books/1
-Example cURL Commands
-Add a new book:
-bash
-Copy
-Edit
-curl -X POST http://localhost:3000/books \
--H "Content-Type: application/json" \
--d "{\"id\":4, \"title\":\"Book Four\", \"author\":\"Author Four\"}"
-Update a book:
-bash
-Copy
-Edit
-curl -X PUT http://localhost:3000/books/4 \
--H "Content-Type: application/json" \
--d "{\"title\":\"Updated Book Four\", \"author\":\"Updated Author Four\"}"
-Delete a book:
-bash
-Copy
-Edit
-curl -X DELETE http://localhost:3000/books/4
-Important Notes
-Data is not persistent; it will reset on server restart.
-
-The API does not use any database for storage.
-
-Built as part of Task 3 submission for Elevate Lab.
-
-Author
-Akash
-GitHub: akarv742006
