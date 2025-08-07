@@ -31,9 +31,26 @@ project-folder/
 ## 📦 Installation & Running the API Locally
 
 Follow these steps to set up and run the project on your local machine:
+To start the server, open your terminal, navigate to the project directory, and run the following command:
+node server.js
+Testing the API from Terminal
+After starting the server, you can test the endpoints using curl. For example, to fetch all books, run:
+
+curl http://localhost:3000/books
+To add a new book, use:
+
+curl -X POST http://localhost:3000/books -H "Content-Type: application/json" -d '{"title":"New Book","author":"Author Name"}'
+To update a book by ID:
+
+
+curl -X PUT http://localhost:3000/books/1 -H "Content-Type: application/json" -d '{"title":"Updated Title","author":"Updated Author"}'
+To delete a book by ID:
+
+curl -X DELETE http://localhost:3000/books/1
+
 
 ### 1. Clone the Repository
-```bash
+use this all in terminal 
 git clone https://github.com/akarv742006/bookstore-api.git
 cd bookstore-api
 2. Install Dependencies
@@ -75,6 +92,7 @@ Invoke-RestMethod -Uri "http://localhost:3000/books/1" -Method DELETE
 Final Result (GET)
 📋 View the updated list
 curl http://localhost:3000/books
+
 
 
 
